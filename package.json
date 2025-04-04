@@ -1,0 +1,22 @@
+{
+  "name": "test-docker",
+  "version": "1.0.0",
+  "description": "This application is created to test docker with github actions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snigdha-deep/test-docker.git"
+  },
+  "author": "Snigdhadeep Jhampaty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snigdha-deep/test-docker/issues"
+  },
+  "homepage": "https://github.com/snigdha-deep/test-docker#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
