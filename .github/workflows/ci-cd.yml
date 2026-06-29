@@ -39,3 +39,21 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/test-api:latest
+
+      - name: Deploy To EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/test-api:latest
+
+            docker stop test-api || true
+            docker rm test-api || true
+
+            docker run -d \
+            --name test-api \
+            -p 3000:3000 \
+            ${{ secrets.DOCKER_USERNAME }}/test-api:latest
